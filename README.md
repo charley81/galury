@@ -10,6 +10,7 @@
 - [x] attach db to ui
 - [x] auth (clerk)
 - [] image upload (uploadthing)
+- [] taint (server only)
 - [] error management (sentry)
 - [] image page (parallel route)
 - [] delete btn (server action)
