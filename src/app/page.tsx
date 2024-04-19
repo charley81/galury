@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { mock } from 'node:test'
+import { db } from '../server/db'
 
 const mockSources = [
   'https://utfs.io/f/2579d989-b25e-475c-b5b7-be8f0fd7eb36-l9pgnd.jpg',
@@ -14,20 +15,20 @@ const mockImages = mockSources.map((src, index) => ({
   alt: `mock image ${index}`
 }))
 
-export default function Home() {
+type Post = {
+  id: number
+  name: string
+  createdAt: Date
+  updatedAt: Date | null
+}
+
+export default async function Home() {
+  const posts: Post[] = await db.query.posts.findMany()
   return (
     <main>
       <div className="grid gap-4 p-4 max-w-6xl mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {mockImages.map((image) => (
-          <div key={image.id} className="w-full">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={250}
-              height={250}
-              className="w-full"
-            />
-          </div>
+        {posts.map((post) => (
+          <h3 key={post.id}>{post.name}</h3>
         ))}
       </div>
     </main>
