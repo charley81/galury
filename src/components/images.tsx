@@ -1,4 +1,4 @@
-import {db} from '../server/db'
+import { db } from '../server/db'
 
 type Image = {
   id: number
@@ -8,7 +8,7 @@ type Image = {
   updatedAt: Date | null
 }
 
-export default function Images() {
+export default async function Images() {
   const images: Image[] = await db.query.images.findMany({
     orderBy: (model, { desc }) => desc(model.id)
   })
@@ -23,10 +23,4 @@ export default function Images() {
       ))}
     </div>
   )
-}
-
-
-
-
- 
 }
