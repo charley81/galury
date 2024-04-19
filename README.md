@@ -4,9 +4,9 @@
 
 - [x] CI/CD (vercel)
 - [x] basic ui w/ mock data
+- [x] optimize build
 - [] setup orm (drizzle)
 - [] setup db (vercel postgres)
-- [] optimize deployment (turbo pack)
 - [] attach db to ui
 - [] auth (clerk)
 - [] image upload (uploadthing)
