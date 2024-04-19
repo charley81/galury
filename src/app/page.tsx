@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { mock } from 'node:test'
 import { db } from '../server/db'
 
+export const dynamic = 'force-dynamic'
+
 const mockSources = [
   'https://utfs.io/f/2579d989-b25e-475c-b5b7-be8f0fd7eb36-l9pgnd.jpg',
   'https://utfs.io/f/8a973366-634b-4a75-8077-0fe93573ab12-iobq7y.jpg',
