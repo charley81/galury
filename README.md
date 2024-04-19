@@ -3,7 +3,7 @@
 ## TODO:
 
 - [x] CI/CD (vercel)
-- [] basic ui w/ mock data
+- [x] basic ui w/ mock data
 - [] setup orm (drizzle)
 - [] setup db (vercel postgres)
 - [] optimize deployment (turbo pack)
