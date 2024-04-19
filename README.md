@@ -10,6 +10,7 @@
 - [x] attach db to ui
 - [x] auth (clerk)
 - [] image upload (uploadthing)
+- [] use Image component
 - [] taint (server only)
 - [] error management (sentry)
 - [] image page (parallel route)
