@@ -1,36 +1,28 @@
 import Image from 'next/image'
-import { mock } from 'node:test'
 import { db } from '../server/db'
 
 export const dynamic = 'force-dynamic'
 
-const mockSources = [
-  'https://utfs.io/f/2579d989-b25e-475c-b5b7-be8f0fd7eb36-l9pgnd.jpg',
-  'https://utfs.io/f/8a973366-634b-4a75-8077-0fe93573ab12-iobq7y.jpg',
-  'https://utfs.io/f/09483592-81b5-4013-bb3a-6de0a8e7118e-603maf.jpg',
-  'https://utfs.io/f/5f7f5446-c1d5-4da9-9c58-7d668b87292c-h94vvt.jpg'
-]
-
-const mockImages = mockSources.map((src, index) => ({
-  id: index + 1,
-  src,
-  alt: `mock image ${index}`
-}))
-
-type Post = {
+type Image = {
   id: number
   name: string
+  url: string
   createdAt: Date
   updatedAt: Date | null
 }
 
 export default async function Home() {
-  const posts: Post[] = await db.query.posts.findMany()
+  const images: Image[] = await db.query.images.findMany({
+    orderBy: (model, { desc }) => desc(model.id)
+  })
   return (
     <main>
       <div className="grid gap-4 p-4 max-w-6xl mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {posts.map((post) => (
-          <h3 key={post.id}>{post.name}</h3>
+        {images.map((image, index) => (
+          <div key={image.id}>
+            <img src={image.url} alt={image.name} />
+            <h3 className="font-bold text-2xl py-2">{image.name}</h3>
+          </div>
         ))}
       </div>
     </main>
