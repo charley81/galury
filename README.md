@@ -8,7 +8,7 @@
 - [x] setup orm (drizzle)
 - [x] setup db (vercel postgres)
 - [x] attach db to ui
-- [] auth (clerk)
+- [x] auth (clerk)
 - [] image upload (uploadthing)
 - [] error management (sentry)
 - [] image page (parallel route)
