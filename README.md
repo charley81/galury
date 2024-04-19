@@ -1,12 +1,13 @@
 # galury
 
 ## TODO:
-- [] deploy (vercel)
+
+- [x] CI/CD (vercel)
 - [] basic ui w/ mock data
 - [] setup orm (drizzle)
 - [] setup db (vercel postgres)
 - [] optimize deployment (turbo pack)
-- [] attach db to ui 
+- [] attach db to ui
 - [] auth (clerk)
 - [] image upload (uploadthing)
 - [] error management (sentry)
