@@ -1,7 +1,5 @@
 import Image from 'next/image'
-import { mock } from 'node:test'
 import { db } from '../server/db'
-import { StringChunk } from 'drizzle-orm'
 
 export const dynamic = 'force-dynamic'
 
