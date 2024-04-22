@@ -9,11 +9,6 @@
 - [x] setup db (vercel postgres)
 - [x] attach db to ui
 - [x] auth (clerk)
-- [x] taint (server only)
-- [] use Image component
-- [] image page (parallel route)
-- [] error management (sentry)
-- [] delete btn (server action)
-- [] analytics (posthog)
-- [] rate limiting (upstash)
-- [] connect users to post
+- [x] taint (server only) // if you don't won't to show certain pieces of data on the clint
+- [x] use Image component
+- [x] analytics (posthog)
