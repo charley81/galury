@@ -18,18 +18,19 @@ import {
  */
 export const createTable = pgTableCreator((name) => `global-db_${name}`)
 
-export const images = createTable(
-  'image',
+export const posts = createTable(
+  'post',
   {
     id: serial('id').primaryKey(),
-    name: varchar('name', { length: 256 }).notNull(),
-    url: varchar('url', { length: 800 }).notNull(),
+    title: varchar('title', { length: 256 }).notNull(),
+    image: varchar('image', { length: 800 }).notNull(),
+    content: varchar('content', { length: 1024 }).notNull(),
     createdAt: timestamp('created_at')
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp('updatedAt')
   },
   (example) => ({
-    nameIndex: index('name_idx').on(example.name)
+    nameIndex: index('title_idx').on(example.title)
   })
 )
