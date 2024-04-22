@@ -1,20 +1,8 @@
-import { db } from '../server/db'
 import { truncate } from '../utils/helpers'
-
-type Post = {
-  id: number
-  userId: number
-  title: string
-  image: string
-  content: string
-  createdAt: Date
-  updatedAt: Date | null
-}
+import { getPosts } from '@/server/queries'
 
 export default async function Posts() {
-  const posts: Post[] = await db.query.posts.findMany({
-    orderBy: (model, { desc }) => desc(model.id)
-  })
+  const posts = await getPosts()
 
   return (
     <div className="grid gap-4 p-4 mt-24 max-w-6xl mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
