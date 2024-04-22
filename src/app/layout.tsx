@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import MainNav from '@/components/shared/main-nav'
+import { CSPostHogProvider } from './_analytics/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,18 +14,26 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children
+  children,
+  modal
 }: Readonly<{
   children: React.ReactNode
+  modal: React.ReactNode
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={`${inter.className}`}>
-          <MainNav />
-          <main>{children}</main>
-        </body>
-      </html>
+      <CSPostHogProvider>
+        <html lang="en">
+          <body className={`${inter.className}`}>
+            <MainNav />
+            <main>
+              {children}
+              {modal}
+              <div id="modal-root" />
+            </main>
+          </body>
+        </html>
+      </CSPostHogProvider>
     </ClerkProvider>
   )
 }
