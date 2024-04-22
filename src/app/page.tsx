@@ -1,5 +1,5 @@
 import { SignedIn, SignedOut } from '@clerk/nextjs'
-import Images from '@/components/images'
+import Posts from '@/components/posts'
 
 export const dynamic = 'force-dynamic'
 
@@ -15,7 +15,7 @@ export default async function Home() {
         </div>
       </SignedOut>
       <SignedIn>
-        <Images />
+        <Posts />
       </SignedIn>
     </main>
   )
