@@ -9,11 +9,11 @@
 - [x] setup db (vercel postgres)
 - [x] attach db to ui
 - [x] auth (clerk)
-- [] image upload (uploadthing)
+- [x] taint (server only)
 - [] use Image component
-- [] taint (server only)
-- [] error management (sentry)
 - [] image page (parallel route)
+- [] error management (sentry)
 - [] delete btn (server action)
 - [] analytics (posthog)
 - [] rate limiting (upstash)
+- [] connect users to post
